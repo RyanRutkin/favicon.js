@@ -31,9 +31,18 @@ class Resize {
       console.error("Failed to resize image. Invalid canvas data provided.");
       return;
     }
+    const preCanvWidth = canvas.width;
+    const preCanvHeight = canvas.height;
+    const calcWidth = preCanvWidth > preCanvHeight ? width : (preCanvWidth/preCanvHeight)*width;
+    const calcHeight = preCanvHeight > preCanvWidth ? height : (preCanvHeight/preCanvWidth)*height;
     canvas.width = width;
     canvas.height = height;
-    resizedContext.drawImage(this._canvas, 0, 0, width, height);
+    resizedContext.drawImage(
+      this._canvas, 
+      width > calcWidth ? (width-calcWidth)/2 : width,
+      height > calcHeight ? (height-calcHeight)/2 : height,
+      calcWidth, calcHeight
+    );
     this._canvas = canvas;
   }
 }

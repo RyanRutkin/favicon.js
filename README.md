@@ -2,7 +2,8 @@
 
 - This is a fork of the original [favicon.js](https://github.com/johnsorrentino/favicon.js) library published by John Sorrentino. John didn't create an npm package for this, so I forked it and created an NPM package.
 - The Favicon class can now be initialized with an image instead of just a canvas element.
-- - Removed critical vulnerability by eliminating unnecessary dependency @swc/helpers
+- Removed critical vulnerability by eliminating unnecessary dependency @swc/helpers
+- ICO files now maintain the original aspect ratio of the uploaded image (previously they were expected to be square).
 
 ## Updates
 
