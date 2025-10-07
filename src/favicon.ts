@@ -19,18 +19,21 @@ class FaviconJS {
   private _initializedWithImage: boolean = false;
 
   private _convertImageToCanvas(): HTMLCanvasElement {
-    const width = this._image!.width;
-    const height = this._image!.height;
-    console.log(`FaviconJS initialized with image - width: ${width}; height: ${height}`);
     const canvas = document.createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
+    const rect = this._image?.getBoundingClientRect();
+    if (!rect?.width || !rect?.height) {
+      console.error('Failed to initialize FaviconJS. Image has not been rendered with full dimensions. Attempt using a timeout after the image has loaded.');
+      return canvas;
+    }
+    console.log(`FaviconJS initialized with image - width: ${rect.width}; height: ${rect.height}`);
+    canvas.width = rect.width;
+    canvas.height = rect.height;
     const ctx = canvas.getContext('2d');
     if (!ctx) {
       console.error('Unable to use FaviconJS. DOM restrictions in place');
       return canvas;
     }
-    ctx.drawImage(this._image!, 0, 0);
+    ctx.drawImage(this._image!, 0, 0, rect.width, rect.height);
     return canvas;
   }
 
