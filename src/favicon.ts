@@ -39,21 +39,21 @@ class FaviconJS {
     return new Bundle(this._canvas).generate();
   }
 
-  ico(sizes) {
+  ico(sizes: number[] = [16, 32, 48]) {
     if (this._initializedWithImage) {
       this._canvas = this._convertImageToCanvas();
     }
     return new Ico(this._canvas).generate(sizes);
   }
 
-  png(size) {
+  png(size: number) {
     if (this._initializedWithImage) {
       this._canvas = this._convertImageToCanvas();
     }
     return new Png(this._canvas).generate(size);
   }
 
-  resize(size) {
+  resize(size: number) {
     if (this._initializedWithImage) {
       this._canvas = this._convertImageToCanvas();
     }
