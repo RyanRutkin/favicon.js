@@ -2,13 +2,15 @@ import Ico from "./ico.js";
 import Png from "./png.js";
 
 class Bundle {
-  constructor(canvas) {
-    this.canvas = canvas;
+  constructor(canvas: HTMLCanvasElement) {
+    this._canvas = canvas;
   }
 
+  private _canvas: HTMLCanvasElement;
+
   generate() {
-    const ico = new Ico(this.canvas);
-    const png = new Png(this.canvas);
+    const ico = new Ico(this._canvas);
+    const png = new Png(this._canvas);
 
     return {
       ico: ico.generate([16, 32, 48]),

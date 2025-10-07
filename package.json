@@ -1,19 +1,21 @@
 {
-  "name": "@johnsorrentino/favicon.js",
+  "name": "@ryanrutkin/favicon.js",
   "description": "Favicon.js is a lightweight library that allows you to create an ICO formatted favicon from a canvas element.",
+  "types": "./lib/cjs/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
   "version": "0.0.1",
-  "author": "johnsorrentino",
+  "author": "ryanrutkin",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "bugs": {
-    "url": "https://github.com/johnsorrentino/faviconjs/issues"
+    "url": "https://github.com/RyanRutkin/faviconjs/issues"
   },
   "dependencies": {
     "@swc/helpers": "^0.3.8"
   },
   "devDependencies": {
-    "parcel": "latest"
+    "typescript": "^4.9.4"
   },
-  "homepage": "https://github.com/johnsorrentino/faviconjs#readme",
+  "homepage": "https://github.com/RyanRutkin/favicon.js#readme",
   "keywords": [
     "bookmark icon",
     "favicon",
@@ -23,19 +25,38 @@
     "shortcut icon",
     "tab icon",
     "url icon",
-    "website icon"
+    "website icon",
+    "react",
+    "frontend"
   ],
   "license": "MIT",
-  "main": "dist/favicon.js",
-  "module": "dist/favicon.mjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnsorrentino/faviconjs.git"
+    "url": "git+https://github.com/RyanRutkin/favicon.js.git"
   },
+  "files": [
+    "lib/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "type": "module",
   "scripts": {
-    "build": "parcel build",
-    "examples": "parcel examples/index.html",
-    "watch": "parcel watch"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "prepack": "npm run build"
   },
-  "source": "src/favicon.js"
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

@@ -1,3 +1,11 @@
+# Shoutout to the developer
+
+This is a fork of the original [favicon.js](https://github.com/johnsorrentino/favicon.js) library published by John Sorrentino. John didn't create an npm package for this, so I forked it and created an NPM package.
+
+## Updates
+
+I've converted this code to Typescript from the original Javascript. Though this library will not work in Node.js, I provided compilation through CJS as well as ESM.
+
 # Favicon.js
 
 Favicon.js is a lightweight library that allows you to create ICO and PNG formatted favicons from a canvas element.
