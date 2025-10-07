@@ -23,6 +23,8 @@ class FaviconJS {
     const height = this._image!.height;
     console.log(`FaviconJS initialized with image - width: ${width}; height: ${height}`);
     const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
     const ctx = canvas.getContext('2d');
     if (!ctx) {
       console.error('Unable to use FaviconJS. DOM restrictions in place');
