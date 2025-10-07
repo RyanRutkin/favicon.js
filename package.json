@@ -3,7 +3,7 @@
   "description": "Favicon.js is a lightweight library that allows you to create an ICO formatted favicon from a canvas element.",
   "types": "./lib/cjs/types/index.d.ts",
   "main": "./lib/cjs/index.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "ryanrutkin",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "bugs": {

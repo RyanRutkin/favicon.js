@@ -1,6 +1,7 @@
 # Shoutout to the developer
 
-This is a fork of the original [favicon.js](https://github.com/johnsorrentino/favicon.js) library published by John Sorrentino. John didn't create an npm package for this, so I forked it and created an NPM package.
+- This is a fork of the original [favicon.js](https://github.com/johnsorrentino/favicon.js) library published by John Sorrentino. John didn't create an npm package for this, so I forked it and created an NPM package.
+- The Favicon class can now be initialized with an image instead of just a canvas element.
 
 ## Updates
 
